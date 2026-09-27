@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#050b12">
+    <meta name="description" content="MacroSuite는 매크로를 서버에 보관하고, 실제 키 입력은 Windows Runtime에서 실행합니다. 공개 매크로를 찾고 담고 HUD에서 실행하는 흐름을 실제 제품 화면으로 체험해 보세요.">
+    <title>MacroSuite | 찾고, 담고, 게임 위에서 실행</title>
+    <link rel="icon" type="image/svg+xml" href="./img/mark.svg">
+    <link rel="stylesheet" href="./site.css">
+    <link rel="stylesheet" href="./home.css">
+    <script type="module" src="./home.js"></script>
+  </head>
+  <body class="home-page">
+    <header class="site-header">
+      <div class="wide-wrap">
+        <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">M</span>MacroSuite</a>
+        <nav class="site-nav" aria-label="주요 메뉴">
+          <a href="#product-flow">제품 흐름</a>
+          <a href="https://macrosuite.vercel.app/hub">매크로 허브</a>
+          <a href="https://macrosuite.vercel.app/my/groups" data-when="in" hidden>내 작업공간</a>
+          <a href="https://macrosuite.vercel.app/admin" class="nav-admin" data-when="admin" hidden>관리자</a>
+          <a href="#download">다운로드</a>
+        </nav>
+        <div class="site-actions">
+          <span class="site-who" id="site-who" hidden></span>
+          <a class="btn btn-quiet" href="https://macrosuite.vercel.app/signup?login=1" data-login data-when="out" hidden>로그인</a>
+          <a class="btn btn-primary btn-sm" href="https://macrosuite.vercel.app/signup" data-when="out" hidden>무료로 시작하기</a>
+          <button class="btn btn-line btn-sm" type="button" data-logout data-when="in" hidden>로그아웃</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-flow" id="product-flow" aria-labelledby="hero-title">
+        <div class="hero-intro wide-wrap">
+          <div class="hero-copy">
+            <p class="eyebrow">SERVER LIBRARY · LOCAL RUNTIME · LIVE HUD</p>
+            <h1 id="hero-title">찾고, 담고,<br><span>게임 위에서 바로 실행.</span></h1>
+            <p class="hero-lead">매크로와 그룹은 서버에 보관합니다. 실제 키 입력은 내 Windows PC에서만 실행합니다. 아래 실제 HUD를 스크롤하거나 직접 눌러 전체 흐름을 확인하세요.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary btn-lg" href="https://macrosuite.vercel.app/hub">공개 매크로 찾기 <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn-line btn-lg" href="https://macrosuite.vercel.app/my/groups" data-when="in" hidden>내 작업공간 열기</a>
+              <a class="btn btn-line btn-lg" href="https://macrosuite.vercel.app/signup?login=1&amp;next=%2Fmy%2Fgroups" data-when="out" hidden>로그인해서 관리</a>
+            </div>
+          </div>
+          <div class="hero-boundary" aria-label="제품 실행 경계">
+            <div><strong>SERVER</strong><span>매크로 · 그룹 · 단축키</span></div>
+            <span class="boundary-arrow" aria-hidden="true">→</span>
+            <div><strong>WINDOWS RUNTIME</strong><span>동기화 · 실제 입력</span></div>
+            <span class="boundary-arrow" aria-hidden="true">→</span>
+            <div><strong>HUD</strong><span>게임 위에서 제어</span></div>
+          </div>
+        </div>
+
+        <div class="story-layout wide-wrap" id="story-shell" data-scene="discover">
+          <div class="story-stage-column">
+            <div class="story-stage">
+              <div class="story-stage__chrome">
+                <span class="stage-live"><i aria-hidden="true"></i> LIVE PRODUCT</span>
+                <span id="demo-status" class="demo-status" aria-live="polite">HUD 연결 중</span>
+                <span>MACROSUITE HUD</span>
+              </div>
+
+              <div class="story-canvas">
+                <div class="story-grid-glow" aria-hidden="true"></div>
+                <div class="story-signal story-signal--server" aria-hidden="true">
+                  <span>SERVER LIBRARY</span>
+                  <strong>동기화됨</strong>
+                </div>
+                <div class="story-signal story-signal--runtime" aria-hidden="true">
+                  <span>LOCAL RUNTIME</span>
+                  <strong>입력은 이 PC에서</strong>
+                </div>
+                <iframe
+                  id="story-demo"
+                  class="story-demo"
+                  src="https://macrosuite-ui.vercel.app/?preview&amp;embed&amp;story&amp;zone=mc"
+                  title="MacroSuite 실제 HUD 인터랙티브 미리보기"
+                  sandbox="allow-scripts allow-same-origin"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+
+              <div class="story-stage__footer">
+                <div>
+                  <strong>실제 제품 코드</strong>
+                  <span>가짜 Runtime 위에서 동작하므로 이 미리보기에서는 키 입력이 전송되지 않습니다.</span>
+                </div>
+                <span class="story-stage__hint">직접 클릭하거나 오른쪽 단계를 선택하세요.</span>
+              </div>
+
+              <nav class="story-tabs" aria-label="제품 흐름 단계">
+                <button type="button" data-story-scene-button="discover" aria-pressed="true"><span>01</span>찾기</button>
+                <button type="button" data-story-scene-button="organize" aria-pressed="false"><span>02</span>정리</button>
+                <button type="button" data-story-scene-button="inspect" aria-pressed="false"><span>03</span>확인</button>
+                <button type="button" data-story-scene-button="run" aria-pressed="false"><span>04</span>실행</button>
+                <button type="button" data-story-scene-button="stop" aria-pressed="false"><span>05</span>정지</button>
+              </nav>
+            </div>
+          </div>
+
+          <ol class="story-steps" aria-label="MacroSuite 사용 흐름">
+            <li class="story-step is-active" data-story-step="discover">
+              <span class="story-step__number">01</span>
+              <p class="eyebrow">DISCOVER</p>
+              <h2>필요한 매크로부터 찾습니다.</h2>
+              <p>공개 허브에서는 로그인 전에 이름, 설명, 사용하는 키와 버튼을 먼저 확인할 수 있습니다. 서버에 있는 것을 찾는 단계와 내 PC에서 실행하는 단계가 섞이지 않습니다.</p>
+              <a href="https://macrosuite.vercel.app/hub" class="story-step__link">실제 허브 열기 <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="story-step" data-story-step="organize">
+              <span class="story-step__number">02</span>
+              <p class="eyebrow">ORGANIZE</p>
+              <h2>그룹과 단축키를 한곳에 묶습니다.</h2>
+              <p>HUD를 펼치면 현재 그룹, 실행 방식, 단축키와 스크립트 수가 한눈에 나타납니다. PC를 바꿔도 이 구성은 계정에서 다시 동기화됩니다.</p>
+            </li>
+            <li class="story-step" data-story-step="inspect">
+              <span class="story-step__number">03</span>
+              <p class="eyebrow">INSPECT</p>
+              <h2>실행 전에 무엇이 나갈지 확인합니다.</h2>
+              <p>사냥 그룹을 선택해 스크립트 구성과 실행 상태를 확인합니다. 중요한 조작은 목록 안에 숨기지 않고 별도 상세 그래프로 이어집니다.</p>
+            </li>
+            <li class="story-step" data-story-step="run">
+              <span class="story-step__number">04</span>
+              <p class="eyebrow">RUN LOCAL</p>
+              <h2>실제 입력은 Windows Runtime이 보냅니다.</h2>
+              <p>서버가 원격으로 키를 누르지 않습니다. 앱이 최신 구성을 받아 현재 PC에서만 실행합니다. 실전 입력 상태는 HUD의 상태색과 문구로 구분됩니다.</p>
+            </li>
+            <li class="story-step" data-story-step="stop">
+              <span class="story-step__number">05</span>
+              <p class="eyebrow">STOP SAFE</p>
+              <h2>멈추는 길은 항상 가까이 둡니다.</h2>
+              <p>전부 정지는 확인 대화상자 없이 즉시 안전한 방향으로 동작합니다. 실행이 끝나면 HUD가 다시 꺼진 상태를 명확히 보여 줍니다.</p>
+              <a href="#download" class="story-step__link">이 PC에 설치하기 <span aria-hidden="true">↓</span></a>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="hub-preview" aria-labelledby="hub-title">
+        <div class="wide-wrap">
+          <div class="section-head section-head--row reveal">
+            <div>
+              <p class="eyebrow">LIVE PUBLIC HUB</p>
+              <h2 id="hub-title">설명용 샘플이 아니라,<br>현재 공개된 매크로입니다.</h2>
+              <p>서버의 실제 공개 목록을 불러옵니다. 마음에 드는 매크로를 찾으면 작업공간에 담아 위 흐름으로 이어집니다.</p>
+            </div>
+            <a class="btn btn-line" href="https://macrosuite.vercel.app/hub">허브 전체 보기 <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+          <ul class="hub-rail" id="hub-rail" aria-live="polite">
+            <li class="hub-tile is-loading" aria-hidden="true"></li>
+            <li class="hub-tile is-loading" aria-hidden="true"></li>
+            <li class="hub-tile is-loading" aria-hidden="true"></li>
+            <li class="hub-tile is-loading" aria-hidden="true"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="continuity" aria-labelledby="continuity-title">
+        <div class="wide-wrap continuity-grid">
+          <div class="continuity-copy reveal">
+            <p class="eyebrow">ONE ACCOUNT · MANY PCS</p>
+            <h2 id="continuity-title">PC가 바뀌어도<br>작업 흐름은 끊기지 않습니다.</h2>
+            <p>웹에서는 찾고 정리하고, Windows 앱에서는 실행합니다. 그룹과 단축키는 서버에 있으므로 집 PC, 노트북, 다른 Windows PC에서도 같은 구조를 다시 받을 수 있습니다.</p>
+          </div>
+          <div class="continuity-map reveal" aria-label="서버 동기화 구조">
+            <div class="continuity-node continuity-node--server"><span>01</span><strong>계정 서버</strong><small>매크로 · 그룹 · 단축키</small></div>
+            <div class="continuity-line" aria-hidden="true"><i></i></div>
+            <div class="continuity-node"><span>02</span><strong>Windows 앱</strong><small>구성 동기화</small></div>
+            <div class="continuity-line" aria-hidden="true"><i></i></div>
+            <div class="continuity-node continuity-node--runtime"><span>03</span><strong>로컬 Runtime</strong><small>실제 키 · 마우스 입력</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="download" id="download" aria-labelledby="download-title">
+        <div class="wide-wrap">
+          <div class="download-box reveal">
+            <div class="download-copy">
+              <p class="eyebrow">WINDOWS CLIENT</p>
+              <h2 id="download-title">이 PC를 실행 장치로 만드세요.</h2>
+              <p>매크로는 서버에 있고, 실제 입력은 이 앱이 보냅니다. 릴리스 정보는 서버의 업데이트 목록에서 직접 읽어오므로 특정 버전을 홈페이지에 고정하지 않습니다.</p>
+              <div class="download-actions">
+                <a class="btn btn-primary btn-lg" href="https://macrosuite.vercel.app/v1/client-update/download" data-download-link>
+                  <span id="download-version-label">Windows 앱 내려받기</span>
+                  <span class="arrow" aria-hidden="true">↓</span>
+                </a>
+                <a class="btn btn-line" href="https://github.com/endlessGold/macrosuite-installer/releases/latest" rel="noreferrer">최신 릴리스 보기</a>
+              </div>
+              <p class="download-warn">코드 서명 전 배포판에서는 Windows가 게시자를 확인할 수 없다는 경고를 표시할 수 있습니다.</p>
+            </div>
+            <dl class="download-facts" id="release-meta">
+              <div><dt>버전</dt><dd id="release-version">확인 중…</dd></div>
+              <div><dt>플랫폼</dt><dd id="release-platform">Windows x64</dd></div>
+              <div><dt>크기</dt><dd id="release-size">확인 중…</dd></div>
+              <div class="sha" id="release-sha-row" hidden>
+                <dt>SHA-256 <button class="btn btn-quiet btn-sm" type="button" id="copy-sha">복사</button></dt>
+                <dd><code id="release-sha"></code></dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wide-wrap">
+        <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">M</span>MacroSuite</a>
+        <span class="status" id="service-status"><i></i><span>서버 상태 확인 중</span></span>
+        <nav aria-label="바닥 메뉴">
+          <a href="https://macrosuite.vercel.app/hub">매크로 허브</a>
+          <a href="https://macrosuite.vercel.app/legal/terms.html">이용약관</a>
+          <a href="https://macrosuite.vercel.app/legal/privacy.html">개인정보 처리방침</a>
+          <a href="https://github.com/endlessGold/macrosuite-installer/releases" rel="noreferrer">릴리스</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
