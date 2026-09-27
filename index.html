@@ -632,26 +632,15 @@ body.home-page {
   min-height: clamp(590px, 62vh, 760px);
   isolation: isolate;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 24% 32%, color-mix(in srgb, var(--scene-color) 13%, transparent), transparent 30rem),
-    radial-gradient(circle at 76% 70%, rgb(61 217 231 / .055), transparent 32rem),
-    linear-gradient(rgb(125 211 252 / .045) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(125 211 252 / .045) 1px, transparent 1px),
-    linear-gradient(135deg, rgb(6 17 29 / .94), rgb(3 9 17 / .88));
-  background-size: auto, auto, 44px 44px, 44px 44px, auto;
-  background-position: center, center, -1px -1px, -1px -1px, center;
-  transition: background .35s var(--ease);
+  background-color: transparent;
+  background-image:
+    linear-gradient(rgb(125 211 252 / .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(125 211 252 / .055) 1px, transparent 1px);
+  background-size: 44px 44px;
+  background-position: -1px -1px;
 }
 .story-grid-glow {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, transparent 0 48%, rgb(61 217 231 / .055) 50%, transparent 52%),
-    linear-gradient(transparent 0 48%, rgb(61 217 231 / .04) 50%, transparent 52%);
-  opacity: .55;
-  mask-image: radial-gradient(circle at center, #000, transparent 76%);
+  display: none;
 }
 .story-demo {
   position: absolute;
@@ -660,33 +649,14 @@ body.home-page {
   width: 100%;
   height: 100%;
   border: 0;
-  background: #07131f;
+  background: transparent;
   color-scheme: dark;
-  filter: saturate(.72) brightness(.72) contrast(1.08) hue-rotate(168deg);
-  opacity: .96;
-  mix-blend-mode: screen;
+  filter: none;
+  opacity: 1;
+  mix-blend-mode: normal;
 }
 .story-canvas::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 28% 24%, rgb(61 217 231 / .08), transparent 28rem),
-    radial-gradient(circle at 78% 72%, rgb(101 146 255 / .07), transparent 32rem),
-    linear-gradient(180deg, rgb(3 9 17 / .08), rgb(3 9 17 / .22));
-  mix-blend-mode: color;
-}
-.story-canvas {
-  background:
-    radial-gradient(circle at 22% 28%, rgb(61 217 231 / .10), transparent 26rem),
-    radial-gradient(circle at 76% 72%, rgb(101 146 255 / .08), transparent 30rem),
-    linear-gradient(rgb(125 211 252 / .035) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(125 211 252 / .035) 1px, transparent 1px),
-    linear-gradient(135deg, #071522, #04101a 55%, #07111f);
-  background-size: auto, auto, 44px 44px, 44px 44px, auto;
-  background-position: center, center, -1px -1px, -1px -1px, center;
+  content: none;
 }
 
 .story-signal {
@@ -1289,7 +1259,7 @@ void loadRelease()
                 <iframe
                   id="story-demo"
                   class="story-demo"
-                  src="https://macrosuite-ui.vercel.app/?preview&amp;embed&amp;story&amp;zone=mc"
+                  src="https://macrosuite-ui.vercel.app/?preview&amp;embed&amp;story&amp;zone=mc&amp;bg=data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%253D%2522http%253A%252F%252Fwww.w3.org%252F2000%252Fsvg%2522%2520width%253D%25221%2522%2520height%253D%25221%2522%253E%253C%252Fsvg%253E"
                   title="MacroSuite 실제 HUD 인터랙티브 미리보기"
                   sandbox="allow-scripts allow-same-origin"
                   referrerpolicy="no-referrer"
