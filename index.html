@@ -660,8 +660,33 @@ body.home-page {
   width: 100%;
   height: 100%;
   border: 0;
-  background: transparent;
+  background: #07131f;
   color-scheme: dark;
+  filter: saturate(.72) brightness(.72) contrast(1.08) hue-rotate(168deg);
+  opacity: .96;
+  mix-blend-mode: screen;
+}
+.story-canvas::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 28% 24%, rgb(61 217 231 / .08), transparent 28rem),
+    radial-gradient(circle at 78% 72%, rgb(101 146 255 / .07), transparent 32rem),
+    linear-gradient(180deg, rgb(3 9 17 / .08), rgb(3 9 17 / .22));
+  mix-blend-mode: color;
+}
+.story-canvas {
+  background:
+    radial-gradient(circle at 22% 28%, rgb(61 217 231 / .10), transparent 26rem),
+    radial-gradient(circle at 76% 72%, rgb(101 146 255 / .08), transparent 30rem),
+    linear-gradient(rgb(125 211 252 / .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(125 211 252 / .035) 1px, transparent 1px),
+    linear-gradient(135deg, #071522, #04101a 55%, #07111f);
+  background-size: auto, auto, 44px 44px, 44px 44px, auto;
+  background-position: center, center, -1px -1px, -1px -1px, center;
 }
 
 .story-signal {
